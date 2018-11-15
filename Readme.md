@@ -1,7 +1,7 @@
 # Личный проект «Пиксель хантер» [![Build status][travis-image]][travis-url]
 
 * Студент: [Фёдор Утин](https://up.htmlacademy.ru/ecmascript/7/user/897785).
-* Наставник: `Неизвестно`.
+* Наставник: `Александр Быков`.
 
 ---
 
