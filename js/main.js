@@ -10,3 +10,5 @@ const setTemplate = (index) => {
     main.appendChild(document.importNode(getTemplate.content, true));
   }
 };
+
+setTemplate(0);
