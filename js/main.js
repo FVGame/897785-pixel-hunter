@@ -31,5 +31,31 @@ document.addEventListener(`keydown`, (event) => {
     case 39:goNext();
       break;
   }
-  console.log(currentTemplateIndex);
 });
+
+{
+  const div = document.createElement(`div`);
+  div.innerHTML = `<div class="arrows__wrap">
+      <style>
+        .arrows__wrap {
+          position: absolute;
+          top: 95px;
+          left: 50%;
+          margin-left: -56px;
+        }
+        .arrows__btn {
+          background: none;
+          border: 2px solid black;
+          padding: 5px 20px;
+        }
+      </style>
+      <button class="arrows__btn"><-</button>
+      <button class="arrows__btn">-></button>
+    </div>`;
+
+  document.body.appendChild(div);
+
+  const arrows = div.querySelectorAll(`.arrows__btn`);
+  arrows[0].addEventListener(`click`, goPrev, false);
+  arrows[1].addEventListener(`click`, goNext, false);
+}
