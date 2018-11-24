@@ -25,11 +25,13 @@ const goNext = () => {
 };
 
 document.addEventListener(`keydown`, (event) => {
+  const keyCodeLeft = 37;
+  const keyCodeRight = 39;
   switch (event.which) {
-    case 37:
+    case keyCodeLeft:
       goPrev();
       break;
-    case 39:
+    case keyCodeRight:
       goNext();
       break;
   }
