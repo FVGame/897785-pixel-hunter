@@ -26,9 +26,11 @@ const goNext = () => {
 
 document.addEventListener(`keydown`, (event) => {
   switch (event.which) {
-    case 37:goPrev();
+    case 37:
+      goPrev();
       break;
-    case 39:goNext();
+    case 39:
+      goNext();
       break;
   }
 });
