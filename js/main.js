@@ -4,7 +4,7 @@ const main = document.querySelector(`#main`);
 const templates = document.querySelectorAll(`template`);
 let currentTemplateIndex = -1;
 const setTemplate = (index) => {
-  const getTemplate = templates[index] || false;
+  const getTemplate = templates[index];
   if (getTemplate) {
     main.innerHTML = ``;
     main.appendChild(document.importNode(getTemplate.content, true));
