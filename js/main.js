@@ -1,5 +1,3 @@
-'use strict';
-
 const main = document.querySelector(`#main`);
 const templates = document.querySelectorAll(`template`);
 let currentTemplateIndex = -1;
