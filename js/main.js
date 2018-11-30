@@ -1,3 +1,5 @@
+import getElementFromHtml from './get-element-from-html';
+
 const main = document.querySelector(`#main`);
 const templates = document.querySelectorAll(`template`);
 let currentTemplateIndex = -1;
@@ -61,3 +63,4 @@ document.addEventListener(`keydown`, (event) => {
   arrows[0].addEventListener(`click`, goPrev, false);
   arrows[1].addEventListener(`click`, goNext, false);
 }
+
