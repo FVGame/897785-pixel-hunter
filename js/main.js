@@ -1,4 +1,11 @@
-import getElementFromHtml from './get-element-from-html';
+import templateIntro from './template-intro';
+import templateGreeting from './template-greeting';
+import templateRules from './template-rules';
+import templateGame1 from './template-game-1';
+import templateGame2 from './template-game-2';
+import templateGame3 from './template-game-3';
+import templateModalError from './template-modal-error';
+import templateModalConfirm from './template-modal-confirm';
 
 const main = document.querySelector(`#main`);
 const templates = document.querySelectorAll(`template`);
