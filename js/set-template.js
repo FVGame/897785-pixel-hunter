@@ -7,6 +7,8 @@ const setTemplate = (template) => {
 
   main.innerHTML = ``;
   main.appendChild(document.importNode(template.content, true));
+
+  return true;
 };
 
 export default setTemplate;
