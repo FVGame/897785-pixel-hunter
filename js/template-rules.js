@@ -1,7 +1,6 @@
 import getElementFromHtml from "./get-element-from-html";
 
-const templateRules = getElementFromHtml(`<template id="rules">
-  <header class="header">
+const templateRules = getElementFromHtml(`<header class="header">
     <button class="back">
       <span class="visually-hidden">Вернуться к началу</span>
       <svg class="icon" width="45" height="45" viewBox="0 0 45 45" fill="#000000">
@@ -27,7 +26,6 @@ const templateRules = getElementFromHtml(`<template id="rules">
       <input class="rules__input" type="text" placeholder="Ваше Имя">
       <button class="rules__button  continue" type="submit" disabled>Go!</button>
     </form>
-  </section>
-</template>`);
+  </section>`);
 
 export default templateRules;

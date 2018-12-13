@@ -1,7 +1,6 @@
 import getElementFromHtml from "./get-element-from-html";
 
-const templateGame2 = getElementFromHtml(`<template id="game-2">
-  <header class="header">
+const templateGame2 = getElementFromHtml(`<header class="header">
     <button class="back">
       <span class="visually-hidden">Вернуться к началу</span>
       <svg class="icon" width="45" height="45" viewBox="0 0 45 45" fill="#000000">
@@ -45,7 +44,6 @@ const templateGame2 = getElementFromHtml(`<template id="game-2">
       <li class="stats__result stats__result--fast"></li>
       <li class="stats__result stats__result--unknown"></li>
     </ul>
-  </section>
-</template>`);
+  </section>`);
 
 export default templateGame2;

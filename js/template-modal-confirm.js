@@ -1,7 +1,6 @@
 import getElementFromHtml from "./get-element-from-html";
 
-const templateModalConfirm = getElementFromHtml(`<template id="modal-confirm">
-  <section class="modal">
+const templateModalConfirm = getElementFromHtml(`<section class="modal">
     <form class="modal__inner">
       <button class="modal__close" type="button">
         <span class="visually-hidden">Закрыть</span>
@@ -13,7 +12,6 @@ const templateModalConfirm = getElementFromHtml(`<template id="modal-confirm">
         <button class="modal__btn">Отмена</button>
       </div>
     </form>
-  </section>
-</template>`);
+  </section>`);
 
 export default templateModalConfirm;

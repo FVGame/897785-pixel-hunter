@@ -1,7 +1,6 @@
 import getElementFromHtml from "./get-element-from-html";
 
-const templateStats = getElementFromHtml(`<template id="stats">
-  <header class="header">
+const templateStats = getElementFromHtml(`<header class="header">
     <button class="back">
       <span class="visually-hidden">Вернуться к началу</span>
       <svg class="icon" width="45" height="45" viewBox="0 0 45 45" fill="#000000">
@@ -111,7 +110,6 @@ const templateStats = getElementFromHtml(`<template id="stats">
         <td colspan="5" class="result__total  result__total--final">950</td>
       </tr>
     </table>
-  </section>
-</template>`);
+  </section>`);
 
 export default templateStats;
