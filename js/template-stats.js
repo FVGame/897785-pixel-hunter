@@ -1,5 +1,4 @@
 import getElementFromHtml from "./get-element-from-html";
-import setTemplate from "./set-template";
 
 const stats = () => {
   const elem = getElementFromHtml(`<div><header class="header">
