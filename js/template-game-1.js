@@ -59,9 +59,9 @@ const game1 = () => {
       <li class="stats__result stats__result--unknown"></li>
     </ul>
   </section></div>`);
-  const itemsInGroup = 2;
+  const groupsCount = 2;
   elem.querySelector(`.game__content`).addEventListener(`click`, (event) => {
-    if (itemsInGroup === Array.from(event.currentTarget.querySelectorAll(`.game__answer input`)).filter((input) => input.checked).length) {
+    if (groupsCount === Array.from(event.currentTarget.querySelectorAll(`.game__answer input`)).filter((input) => input.checked).length) {
       setTemplate(templateGame2());
     }
   });
