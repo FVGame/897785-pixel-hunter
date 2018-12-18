@@ -51,6 +51,7 @@ const templateGame3 = () => {
       templateStats();
     });
   });
+  return elem;
 };
 
 export default templateGame3;

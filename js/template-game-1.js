@@ -82,6 +82,7 @@ const game1 = () => {
       }
     });
   });
+  return elem;
 };
 
 export default game1;

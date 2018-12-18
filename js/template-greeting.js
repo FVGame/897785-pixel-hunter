@@ -26,6 +26,7 @@ const greeting = () => {
   elem.querySelector(`.greeting__continue`).addEventListener(`click`, () => {
     templateRules();
   });
+  return elem;
 };
 
 export default greeting;

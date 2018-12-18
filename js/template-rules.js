@@ -42,6 +42,7 @@ const rules = () => {
   buttonGo.addEventListener(`click`, () => {
     templateGame1();
   });
+  return elem;
 };
 
 export default rules;

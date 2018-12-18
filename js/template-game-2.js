@@ -53,6 +53,7 @@ const game2 = () => {
       templateGame3();
     });
   });
+  return elem;
 };
 
 export default game2;

@@ -10,6 +10,7 @@ const intro = () => {
   elem.querySelector(`.intro__asterisk`).addEventListener(`click`, () => {
     templateGreeting();
   });
+  return elem;
 };
 
 export default intro;
