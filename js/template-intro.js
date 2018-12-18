@@ -1,8 +1,15 @@
 import getElementFromHtml from "./get-element-from-html";
+import templateGreeting from './template-greeting';
+import setTemplate from './set-template';
 
-const templateIntro = getElementFromHtml(`<section class="intro">
+const intro = () => {
+  const elem = setTemplate(getElementFromHtml(`<section class="intro">
     <button class="intro__asterisk asterisk" type="button"><span class="visually-hidden">Продолжить</span>*</button>
     <p class="intro__motto"><sup>*</sup> Это не фото. Это рисунок маслом нидерландского художника-фотореалиста Tjalf Sparnaay.</p>
-  </section>`);
-// templateIntro.querySelector()
-export default templateIntro;
+  </section>`));
+  elem.querySelector(`.intro__asterisk`).addEventListener(`click`, () => {
+    templateGreeting();
+  });
+};
+
+export default intro;

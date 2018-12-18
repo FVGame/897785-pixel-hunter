@@ -1,6 +1,9 @@
 import getElementFromHtml from "./get-element-from-html";
+import templateGame2 from './template-game-2';
+import setTemplate from './set-template';
 
-const templateGame1 = getElementFromHtml(`<div><header class="header">
+const game1 = () => {
+  const elem = setTemplate(getElementFromHtml(`<div><header class="header">
     <button class="back">
       <span class="visually-hidden">Вернуться к началу</span>
       <svg class="icon" width="45" height="45" viewBox="0 0 45 45" fill="#000000">
@@ -55,6 +58,30 @@ const templateGame1 = getElementFromHtml(`<div><header class="header">
       <li class="stats__result stats__result--unknown"></li>
       <li class="stats__result stats__result--unknown"></li>
     </ul>
-  </section></div>`);
+  </section></div>`));
+  const inputs = elem.querySelectorAll(`.game__answer input`);
+  inputs.forEach((inputField) => {
+    inputField.addEventListener(`change`, () => {
+      const groups = {};
+      let allChanged = true;
+      inputs.forEach((input) => {
+        const name = input.getAttribute(`name`);
+        if (!groups[name]) {
+          groups[name] = input.checked;
+        } else {
+          groups[name] = (input.checked ? input.checked : groups[name]);
+        }
+      });
+      for (const item in groups) {
+        if (!groups[item]) {
+          allChanged = false;
+        }
+      }
+      if (allChanged) {
+        templateGame2();
+      }
+    });
+  });
+};
 
-export default templateGame1;
+export default game1;

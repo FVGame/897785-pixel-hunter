@@ -1,6 +1,9 @@
 import getElementFromHtml from "./get-element-from-html";
+import templateStats from './template-stats';
+import setTemplate from './set-template';
 
-const templateGame3 = getElementFromHtml(`<div><header class="header">
+const templateGame3 = () => {
+  const elem = setTemplate(getElementFromHtml(`<div><header class="header">
     <button class="back">
       <span class="visually-hidden">Вернуться к началу</span>
       <svg class="icon" width="45" height="45" viewBox="0 0 45 45" fill="#000000">
@@ -42,6 +45,12 @@ const templateGame3 = getElementFromHtml(`<div><header class="header">
       <li class="stats__result stats__result--fast"></li>
       <li class="stats__result stats__result--unknown"></li>
     </ul>
-  </section></div>`);
+  </section></div>`));
+  elem.querySelectorAll(`.game__option`).forEach((item) => {
+    item.addEventListener(`click`, () => {
+      templateStats();
+    });
+  });
+};
 
 export default templateGame3;
