@@ -3,7 +3,7 @@ import templateGame3 from './template-game-3';
 import setTemplate from './set-template';
 
 const game2 = () => {
-  const elem = setTemplate(getElementFromHtml(`<div><header class="header">
+  const elem = getElementFromHtml(`<div><header class="header">
     <button class="back">
       <span class="visually-hidden">Вернуться к началу</span>
       <svg class="icon" width="45" height="45" viewBox="0 0 45 45" fill="#000000">
@@ -47,10 +47,10 @@ const game2 = () => {
       <li class="stats__result stats__result--fast"></li>
       <li class="stats__result stats__result--unknown"></li>
     </ul>
-  </section></div>`));
+  </section></div>`);
   elem.querySelectorAll(`.game__answer input`).forEach((input) => {
     input.addEventListener(`change`, () => {
-      templateGame3();
+      setTemplate(templateGame3());
     });
   });
   return elem;

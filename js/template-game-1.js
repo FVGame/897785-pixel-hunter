@@ -3,7 +3,7 @@ import templateGame2 from './template-game-2';
 import setTemplate from './set-template';
 
 const game1 = () => {
-  const elem = setTemplate(getElementFromHtml(`<div><header class="header">
+  const elem = getElementFromHtml(`<div><header class="header">
     <button class="back">
       <span class="visually-hidden">Вернуться к началу</span>
       <svg class="icon" width="45" height="45" viewBox="0 0 45 45" fill="#000000">
@@ -58,13 +58,13 @@ const game1 = () => {
       <li class="stats__result stats__result--unknown"></li>
       <li class="stats__result stats__result--unknown"></li>
     </ul>
-  </section></div>`));
+  </section></div>`);
   const itemsInGroup = 2;
   const inputs = elem.querySelectorAll(`.game__answer input`);
   inputs.forEach((inputField) => {
     inputField.addEventListener(`change`, () => {
       if (itemsInGroup === Array.from(inputs).filter((input) => input.checked).length) {
-        templateGame2();
+        setTemplate(templateGame2());
       }
     });
   });

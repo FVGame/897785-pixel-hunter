@@ -3,7 +3,7 @@ import templateRules from './template-rules';
 import setTemplate from './set-template';
 
 const greeting = () => {
-  const elem = setTemplate(getElementFromHtml(`<section class="greeting central--blur">
+  const elem = getElementFromHtml(`<section class="greeting central--blur">
     <img class="greeting__logo" src="img/logo_ph-big.svg" width="201" height="89" alt="Pixel Hunter">
     <div class="greeting__asterisk asterisk"><span class="visually-hidden">Я просто красивая звёздочка</span>*</div>
     <div class="greeting__challenge">
@@ -22,9 +22,9 @@ const greeting = () => {
         <use xlink:href="img/sprite.svg#arrow-right"></use>
       </svg>
     </button>
-  </section>`));
+  </section>`);
   elem.querySelector(`.greeting__continue`).addEventListener(`click`, () => {
-    templateRules();
+    setTemplate(templateRules());
   });
   return elem;
 };
