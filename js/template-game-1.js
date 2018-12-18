@@ -59,25 +59,11 @@ const game1 = () => {
       <li class="stats__result stats__result--unknown"></li>
     </ul>
   </section></div>`));
+  const itemsInGroup = 2;
   const inputs = elem.querySelectorAll(`.game__answer input`);
   inputs.forEach((inputField) => {
     inputField.addEventListener(`change`, () => {
-      const groups = {};
-      let allChanged = true;
-      inputs.forEach((input) => {
-        const name = input.getAttribute(`name`);
-        if (!groups[name]) {
-          groups[name] = input.checked;
-        } else {
-          groups[name] = (input.checked ? input.checked : groups[name]);
-        }
-      });
-      for (const item in groups) {
-        if (!groups[item]) {
-          allChanged = false;
-        }
-      }
-      if (allChanged) {
+      if (itemsInGroup === Array.from(inputs).filter((input) => input.checked).length) {
         templateGame2();
       }
     });
