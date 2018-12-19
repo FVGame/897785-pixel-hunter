@@ -2,8 +2,7 @@ import getElementFromHtml from "./get-element-from-html";
 import templateGame1 from './template-game-1';
 import setTemplate from './set-template';
 
-const rules = () => {
-  const elem = getElementFromHtml(`<div><header class="header">
+const rules = getElementFromHtml(`<div><header class="header">
     <button class="back">
       <span class="visually-hidden">Вернуться к началу</span>
       <svg class="icon" width="45" height="45" viewBox="0 0 45 45" fill="#000000">
@@ -30,19 +29,17 @@ const rules = () => {
       <button class="rules__button  continue" type="submit" disabled>Go!</button>
     </form>
   </section></div>`);
-  const buttonGo = elem.querySelector(`.rules__button`);
-  elem.querySelector(`.rules__input`).addEventListener(`input`, (event) => {
-    if (event.currentTarget.value > ``) {
-      buttonGo.removeAttribute(`disabled`);
-    } else {
-      buttonGo.setAttribute(`disabled`, true);
-    }
-  });
+const buttonGo = rules.querySelector(`.rules__button`);
+rules.querySelector(`.rules__input`).addEventListener(`input`, (event) => {
+  if (event.currentTarget.value > ``) {
+    buttonGo.removeAttribute(`disabled`);
+  } else {
+    buttonGo.setAttribute(`disabled`, true);
+  }
+});
 
-  buttonGo.addEventListener(`click`, () => {
-    setTemplate(templateGame1());
-  });
-  return elem;
-};
+buttonGo.addEventListener(`click`, () => {
+  setTemplate(templateGame1);
+});
 
 export default rules;

@@ -1,7 +1,6 @@
 import getElementFromHtml from "./get-element-from-html";
 
-const stats = () => {
-  return getElementFromHtml(`<div><header class="header">
+const stats = getElementFromHtml(`<div><header class="header">
     <button class="back">
       <span class="visually-hidden">Вернуться к началу</span>
       <svg class="icon" width="45" height="45" viewBox="0 0 45 45" fill="#000000">
@@ -112,6 +111,5 @@ const stats = () => {
       </tr>
     </table>
   </section></div>`);
-};
 
 export default stats;
