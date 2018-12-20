@@ -1,7 +1,7 @@
 import {assert} from 'chai';
 import statsCalc from '../stats-calc';
 import leavesController from '../leaves-controller';
-import gameController from '../game-controller';
+import levelsController from '../levels-controller';
 
 describe(`Array`, () => {
   describe(`#indexOf()`, () => {
@@ -95,6 +95,6 @@ describe(`leaves controller`, () => {
 
 describe(`game controller`, () => {
   it(`should allow `, () => {
-    assert.equal(gameController(), true);
+    assert.equal(levelsController(), true);
   });
 });
