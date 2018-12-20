@@ -11,9 +11,16 @@ describe(`Array`, () => {
 
 describe(`stats calculator`, () => {
   it(`should not allow no data`, () => {
-    assert.equal(statsCalc(), false);
+    assert.equal(statsCalc(), -1);
   });
-  it(`should allow data`, () => {
-    assert.equal(statsCalc([], 0), 0);
+  it(`should not allow incorrect typeof answers`, () => {
+    assert.equal(statsCalc(123, 3), -1);
+    assert.equal(statsCalc(`123`, 3), -1);
+  });
+  it(`should not allow < 10 answers`, () => {
+    assert.equal(statsCalc([], 0), -1);
+  });
+  it(`should allow 10 answers`, () => {
+    assert.equal(statsCalc(Array(10), 3), 0);
   });
 });

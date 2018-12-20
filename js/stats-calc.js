@@ -1,8 +1,8 @@
 const calc = (answers, leaves) => {
-  if (!answers || typeof answers !== `object` || !leaves || typeof leaves !== `number`) {
-    return false;
+  let points = -1;
+  if (answers && typeof answers === `object` && answers.length === 10 && leaves && typeof leaves === `number`) {
+    points = 0;
   }
-  let points = 0;
   return points;
 };
 
