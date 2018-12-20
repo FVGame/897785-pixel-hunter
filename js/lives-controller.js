@@ -1,6 +1,6 @@
-const controller = (leaves) => {
+const controller = (lives) => {
   let allowContinue = false;
-  if (leaves > 0) {
+  if (lives > 0) {
     allowContinue = true;
   }
 

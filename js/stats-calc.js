@@ -1,6 +1,6 @@
-const calc = (answers, leaves) => {
+const calc = (answers, lives) => {
   let points = 0;
-  if (answers && typeof answers === `object` && answers.length === 10 && leaves >= 0 && typeof leaves === `number`) {
+  if (answers && typeof answers === `object` && answers.length === 10 && lives >= 0 && typeof lives === `number`) {
     const validAnswers = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
     const checkAnswer = (answer, index) => answer === validAnswers[index];
     answers.forEach((answer, answerIndex) => {
@@ -14,7 +14,7 @@ const calc = (answers, leaves) => {
       }
     });
 
-    points += leaves * 50;
+    points += lives * 50;
   } else {
     points = -1;
   }

@@ -1,6 +1,6 @@
 import {assert} from 'chai';
 import statsCalc from '../stats-calc';
-import leavesController from '../leaves-controller';
+import livesController from '../lives-controller';
 import levelsController from '../levels-controller';
 
 describe(`Array`, () => {
@@ -67,7 +67,7 @@ describe(`stats calculator`, () => {
     ];
     assert.equal(statsCalc(answers, 0), 500);
   });
-  it(`should allow 3 leaves`, () => {
+  it(`should allow 3 lives`, () => {
     const answers = [
       {answer: 1},
       {answer: 1},
@@ -84,17 +84,19 @@ describe(`stats calculator`, () => {
   });
 });
 
-describe(`leaves controller`, () => {
-  it(`should allow leaves`, () => {
-    assert.equal(leavesController(3), true);
+describe(`lives controller`, () => {
+  it(`should allow lives`, () => {
+    assert.equal(livesController(3), true);
   });
-  it(`should not allow leaves`, () => {
-    assert.equal(leavesController(0), false);
+  it(`should not allow lives`, () => {
+    assert.equal(livesController(0), false);
   });
 });
 
 describe(`game controller`, () => {
-  it(`should allow `, () => {
-    assert.equal(levelsController(), true);
+  it(`should allow with start level and all lives`, () => {
+    const level = 0;
+    const lives = 3;
+    assert.equal(levelsController(level, lives), true);
   });
 });
