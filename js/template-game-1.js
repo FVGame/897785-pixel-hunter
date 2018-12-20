@@ -60,7 +60,8 @@ const game1 = getElementFromHtml(`<div><header class="header">
   </section></div>`);
 const groupsCount = 2;
 game1.querySelector(`.game__content`).addEventListener(`click`, (event) => {
-  if (groupsCount === Array.from(event.currentTarget.querySelectorAll(`.game__answer input`)).filter((input) => input.checked).length) {
+  const fields = event.currentTarget.querySelectorAll(`.game__answer input`);
+  if (groupsCount === Array.from(fields).filter((input) => input.checked).length) {
     setTemplate(templateGame2);
   }
 });

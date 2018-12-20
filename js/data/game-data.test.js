@@ -1,5 +1,6 @@
 import {assert} from 'chai';
 import statsCalc from '../stats-calc';
+import leavesController from '../leaves-controller';
 
 describe(`Array`, () => {
   describe(`#indexOf()`, () => {
@@ -33,36 +34,57 @@ describe(`stats calculator`, () => {
       {answer: 1},
       {answer: 1},
     ];
-    assert.equal(statsCalc(answers, 3), 1000);
+    assert.equal(statsCalc(answers, 0), 1000);
   });
   it(`should allow fast 10 answers`, () => {
     const answers = [
-      {time: 0},
-      {time: 0},
-      {time: 0},
-      {time: 0},
-      {time: 0},
-      {time: 0},
-      {time: 0},
-      {time: 0},
-      {time: 0},
-      {time: 0},
+      {answer: 1, time: 0},
+      {answer: 1, time: 0},
+      {answer: 1, time: 0},
+      {answer: 1, time: 0},
+      {answer: 1, time: 0},
+      {answer: 1, time: 0},
+      {answer: 1, time: 0},
+      {answer: 1, time: 0},
+      {answer: 1, time: 0},
+      {answer: 1, time: 0},
     ];
-    assert.equal(statsCalc(answers, 3), 1500);
+    assert.equal(statsCalc(answers, 0), 1500);
   });
   it(`should allow slow 10 answers`, () => {
     const answers = [
-      {time: 999},
-      {time: 999},
-      {time: 999},
-      {time: 999},
-      {time: 999},
-      {time: 999},
-      {time: 999},
-      {time: 999},
-      {time: 999},
-      {time: 999},
+      {answer: 1, time: 999},
+      {answer: 1, time: 999},
+      {answer: 1, time: 999},
+      {answer: 1, time: 999},
+      {answer: 1, time: 999},
+      {answer: 1, time: 999},
+      {answer: 1, time: 999},
+      {answer: 1, time: 999},
+      {answer: 1, time: 999},
+      {answer: 1, time: 999},
     ];
-    assert.equal(statsCalc(answers, 3), 500);
+    assert.equal(statsCalc(answers, 0), 500);
+  });
+  it(`should allow 3 leaves`, () => {
+    const answers = [
+      {answer: 1},
+      {answer: 1},
+      {answer: 1},
+      {answer: 1},
+      {answer: 1},
+      {answer: 1},
+      {answer: 1},
+      {answer: 1},
+      {answer: 1},
+      {answer: 1},
+    ];
+    assert.equal(statsCalc(answers, 3), 1150);
+  });
+});
+
+describe(`leaves controller`, () => {
+  it(`should allow leaves`, () => {
+    assert.equal(leavesController(3), true);
   });
 });
