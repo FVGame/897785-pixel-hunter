@@ -87,4 +87,7 @@ describe(`leaves controller`, () => {
   it(`should allow leaves`, () => {
     assert.equal(leavesController(3), true);
   });
+  it(`should not allow leaves`, () => {
+    assert.equal(leavesController(0), false);
+  });
 });
