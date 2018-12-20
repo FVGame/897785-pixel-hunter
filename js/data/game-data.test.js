@@ -2,6 +2,7 @@ import {assert} from 'chai';
 import statsCalc from '../stats-calc';
 import livesController from '../lives-controller';
 import levelsController from '../levels-controller';
+import timer from '../timer';
 
 describe(`Array`, () => {
   describe(`#indexOf()`, () => {
@@ -108,5 +109,14 @@ describe(`game controller`, () => {
     const level = 0;
     const lives = 0;
     assert.equal(levelsController(level, lives), false);
+  });
+});
+
+describe(`game timer`, () => {
+  it(`should return false if time < 0`, () => {
+    assert.equal(timer(-1), false);
+  });
+  it(`should return true if time >= 0`, () => {
+    assert.equal(timer(0), true);
   });
 });
