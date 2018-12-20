@@ -1,6 +1,7 @@
 import {assert} from 'chai';
 import statsCalc from '../stats-calc';
 import leavesController from '../leaves-controller';
+import gameController from '../game-controller';
 
 describe(`Array`, () => {
   describe(`#indexOf()`, () => {
@@ -89,5 +90,11 @@ describe(`leaves controller`, () => {
   });
   it(`should not allow leaves`, () => {
     assert.equal(leavesController(0), false);
+  });
+});
+
+describe(`game controller`, () => {
+  it(`should allow `, () => {
+    assert.equal(gameController(), true);
   });
 });
