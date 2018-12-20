@@ -119,4 +119,7 @@ describe(`game timer`, () => {
   it(`should return true if time >= 0`, () => {
     assert.equal(timer(0), true);
   });
+  it(`should return false if time >= 30`, () => {
+    assert.equal(timer(30.001), false);
+  });
 });
