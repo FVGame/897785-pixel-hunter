@@ -1,10 +1,5 @@
 const controller = (level, lives) => {
-  let allowContinue = false;
-  if (level >= 0 && level < 10 && lives > 0) {
-    allowContinue = true;
-  }
-
-  return allowContinue;
+  return level >= 0 && level < 10 && lives > 0;
 };
 
 export default controller;
