@@ -94,9 +94,19 @@ describe(`lives controller`, () => {
 });
 
 describe(`game controller`, () => {
-  it(`should allow with start level and all lives`, () => {
+  it(`should allow continue game with start level and all leaves`, () => {
     const level = 0;
     const lives = 3;
     assert.equal(levelsController(level, lives), true);
+  });
+  it(`should not allow continue game with level >= 10`, () => {
+    const level = 10;
+    const lives = 3;
+    assert.equal(levelsController(level, lives), false);
+  });
+  it(`should not allow continue game with lives < 1`, () => {
+    const level = 0;
+    const lives = 0;
+    assert.equal(levelsController(level, lives), false);
   });
 });
