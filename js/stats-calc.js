@@ -4,40 +4,40 @@ const calc = (answers, lives) => {
   }
   let points = 0;
   const validAnswers = {
-    'level-0': 1,
-    'level-1': 1,
-    'level-2': 1,
-    'level-3': 1,
-    'level-4': 1,
-    'level-5': 1,
-    'level-6': 1,
-    'level-7': 1,
-    'level-8': 1,
-    'level-9': 1
+    'LEVEL-0': 1,
+    'LEVEL-1': 1,
+    'LEVEL-2': 1,
+    'LEVEL-3': 1,
+    'LEVEL-4': 1,
+    'LEVEL-5': 1,
+    'LEVEL-6': 1,
+    'LEVEL-7': 1,
+    'LEVEL-8': 1,
+    'LEVEL-9': 1
   };
   const pointIncrements = {
-    default: 100,
-    fastAnswer: 50,
-    slowAnswer: -50,
-    bySavedLive: 50
+    DEFAULT: 100,
+    FAST: 50,
+    SLOW: -50,
+    LIVE: 50
   };
   const time = {
-    fastAnswerMinTime: 0,
-    fastAnswerMaxTime: 5,
-    maxAnswerTime: 30
+    FASTMIN: 0,
+    FASTMAX: 5,
+    MAX: 30
   };
-  const checkAnswer = (answer, index) => answer === validAnswers[`level-${index}`];
+  const checkAnswer = (answer, index) => answer === validAnswers[`LEVEL-${index}`];
   answers.forEach((answer, answerIndex) => {
     if (checkAnswer(answer.answer, answerIndex)) {
-      points += pointIncrements[`default`];
-      if (answer.time >= time[`fastAnswerMinTime`] && answer.time <= time[`fastAnswerMaxTime`]) {
-        points += pointIncrements[`fastAnswer`];
-      } else if (answer.time > time[`maxAnswerTime`]) {
-        points += pointIncrements[`slowAnswer`];
+      points += pointIncrements[`DEFAULT`];
+      if (answer.time >= time[`FASTMIN`] && answer.time <= time[`FASTMAX`]) {
+        points += pointIncrements[`FAST`];
+      } else if (answer.time > time[`MAX`]) {
+        points += pointIncrements[`SLOW`];
       }
     }
   });
-  points += lives * pointIncrements[`bySavedLive`];
+  points += lives * pointIncrements[`LIVE`];
   return points;
 };
 
