@@ -3,7 +3,7 @@ const calc = (answers, lives) => {
     return -1;
   }
   let points = 0;
-  const validAnswers = Object.freeze({
+  const validAnswers = {
     'level-0': 1,
     'level-1': 1,
     'level-2': 1,
@@ -14,18 +14,18 @@ const calc = (answers, lives) => {
     'level-7': 1,
     'level-8': 1,
     'level-9': 1
-  });
-  const pointIncrements = Object.freeze({
+  };
+  const pointIncrements = {
     default: 100,
     fastAnswer: 50,
     slowAnswer: -50,
     bySavedLive: 50
-  });
-  const time = Object.freeze({
+  };
+  const time = {
     fastAnswerMinTime: 0,
     fastAnswerMaxTime: 5,
     maxAnswerTime: 30
-  });
+  };
   const checkAnswer = (answer, index) => answer === validAnswers[`level-${index}`];
   answers.forEach((answer, answerIndex) => {
     if (checkAnswer(answer.answer, answerIndex)) {
