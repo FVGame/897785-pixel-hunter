@@ -23,7 +23,7 @@ const calc = (answers, lives) => {
   };
   const time = {
     FASTMIN: 0,
-    FASTMAX: 5,
+    FASTMAX: 10,
     MAX: 30
   };
   const checkAnswer = (answer, index) => answer === validAnswers[`LEVEL-${index}`];
