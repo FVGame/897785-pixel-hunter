@@ -1,5 +1,9 @@
 export default {
-  taskDescription: `Угадайте для каждого изображения фото или рисунок?`,
+  taskDescriptions: {
+    itemsLength1: `Угадай, фото или рисунок?`,
+    itemsLength2: `Угадайте для каждого изображения фото или рисунок?`,
+    itemsLength3: `Найдите рисунок среди изображений`
+  },
   paintings: [
     `https://k42.kn3.net/CF42609C8.jpg`, // People
     `https://k42.kn3.net/D2F0370D6.jpg`, // Animals

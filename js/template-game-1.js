@@ -21,11 +21,39 @@ const htmlHeader = `<header class="header">
     </div>
   </header>`;
 const createForm = (itemsLength = 1) => {
-  let html = `<form class="game__content ${itemsLength === 3 ?}">`;
+  const items = {
+    ONE: 1,
+    TWO: 2,
+    THREE: 3
+  };
+  let additionalClasses = ``;
+  let width = 0;
+  let height = 0;
+  switch (itemsLength) {
+    case items.ONE:
+      additionalClasses = `game__content--wide`;
+      width = 705;
+      height = 455;
+      break;
+    case items.TWO:
+      additionalClasses = ``;
+      width = 468;
+      height = 458;
+      break;
+    case items.THREE:
+      additionalClasses = `game__content--triple`;
+      width = 304;
+      height = 455;
+      break;
+  }
 
-    ${createGameOption(data.paintings[0], 1, 468, 458)}
-    ${createGameOption(data.photos[0], 2, 468, 458)}
-    </form>
+  let html = `<form class="game__content ${additionalClasses}">`;
+  html += `<p class="game__task">${data.taskDescriptions[`itemsLength${itemsLength}`]}</p>`;
+  for (let i = 0; i < itemsLength; i++) {
+    html += createGameOption(data.paintings[0], i, width, height);
+  }
+  html += `</form>`;
+  return html;
 };
 const createGameOption = (src, index, width, height) => `<div class="game__option">
         <img src="${src}" alt="Option ${index}" width="${width}" height="${height}">
@@ -50,11 +78,9 @@ const htmlStats = `<ul class="stats">
       <li class="stats__result stats__result--unknown"></li>
       <li class="stats__result stats__result--unknown"></li>
     </ul>`;
-// game__content--triple
 const game1 = getElementFromHtml(`<div>${htmlHeader}
   <section class="game">
-    <p class="game__task">${data.taskDescription}</p>
-    
+    ${createForm()}
     ${htmlStats}
   </section></div>`);
 const groupsCount = 2;
