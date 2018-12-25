@@ -51,8 +51,8 @@ const createForm = () => {
       break;
   }
 
-  let html = `<form class="game__content ${additionalClasses}">`;
-  html += `<p class="game__task">${data.taskDescriptions[`itemsLength${itemsLength}`]}</p>`;
+  let html = `<p class="game__task">${data.taskDescriptions[`itemsLength${itemsLength}`]}</p>`;
+  html += `<form class="game__content ${additionalClasses}">`;
   for (let i = 0; i < itemsLength; i++) {
     html += createGameOption(data.paintings[0], i, width, height, showLabels);
   }
@@ -105,7 +105,7 @@ const addEventsGame2 = () => {
   });
 };
 const addEventsGame3 = () => {
-  game1.querySelectorAll(`.game__answer input`).forEach((item) => {
+  game1.querySelectorAll(`.game__option`).forEach((item) => {
     item.addEventListener(`click`, () => {
       setTemplate(templateGame1);
     });
