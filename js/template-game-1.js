@@ -1,8 +1,15 @@
 import getElementFromHtml from "./get-element-from-html";
-import templateGame2 from './template-game-2';
+import templateGame1 from './template-game-1';
 import setTemplate from './set-template';
 import data from './data-game1';
+import randomInt from './random-integer';
 
+const itemsLength = randomInt(1, 4);console.log(itemsLength)
+const items = {
+  ONE: 1,
+  TWO: 2,
+  THREE: 3
+};
 const htmlHeader = `<header class="header">
     <button class="back">
       <span class="visually-hidden">Вернуться к началу</span>
@@ -20,12 +27,7 @@ const htmlHeader = `<header class="header">
       <img src="img/heart__full.svg" class="game__heart" alt="Life" width="31" height="27">
     </div>
   </header>`;
-const createForm = (itemsLength = 1) => {
-  const items = {
-    ONE: 1,
-    TWO: 2,
-    THREE: 3
-  };
+const createForm = () => {
   let additionalClasses = ``;
   let width = 0;
   let height = 0;
@@ -83,12 +85,40 @@ const game1 = getElementFromHtml(`<div>${htmlHeader}
     ${createForm()}
     ${htmlStats}
   </section></div>`);
-const groupsCount = 2;
-game1.querySelector(`.game__content`).addEventListener(`click`, (event) => {
-  const fields = event.currentTarget.querySelectorAll(`.game__answer input`);
-  if (groupsCount === Array.from(fields).filter((input) => input.checked).length) {
-    setTemplate(templateGame2);
-  }
-});
+const addEventsGame1 = () => {
+  game1.querySelectorAll(`.game__answer input`).forEach((input) => {
+    input.addEventListener(`change`, () => {
+      setTemplate(templateGame1);
+    });
+  });
+};
+const addEventsGame2 = () => {
+  const groupsCount = 2;
+  game1.querySelector(`.game__content`).addEventListener(`click`, (event) => {
+    const fields = event.currentTarget.querySelectorAll(`.game__answer input`);
+    if (groupsCount === Array.from(fields).filter((input) => input.checked).length) {
+      setTemplate(templateGame1);
+    }
+  });
+};
+const addEventsGame3 = () => {
+  game1.querySelectorAll(`.game__answer input`).forEach((item) => {
+    item.addEventListener(`click`, () => {
+      setTemplate(templateGame1);
+    });
+  });
+};
+
+switch (itemsLength) {
+  case items.ONE:
+    addEventsGame1();
+    break;
+  case items.TWO:
+    addEventsGame2();
+    break;
+  case items.THREE:
+    addEventsGame3();
+    break;
+}
 
 export default game1;
