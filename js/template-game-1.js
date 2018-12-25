@@ -4,7 +4,7 @@ import setTemplate from './set-template';
 import data from './data-game1';
 import randomInt from './random-integer';
 
-const itemsLength = randomInt(1, 4);console.log(itemsLength)
+let itemsLength = randomInt(1, 4);
 const items = {
   ONE: 1,
   TWO: 2,
@@ -31,6 +31,7 @@ const createForm = () => {
   let additionalClasses = ``;
   let width = 0;
   let height = 0;
+  let showLabels = true;
   switch (itemsLength) {
     case items.ONE:
       additionalClasses = `game__content--wide`;
@@ -46,28 +47,30 @@ const createForm = () => {
       additionalClasses = `game__content--triple`;
       width = 304;
       height = 455;
+      showLabels = false;
       break;
   }
 
   let html = `<form class="game__content ${additionalClasses}">`;
   html += `<p class="game__task">${data.taskDescriptions[`itemsLength${itemsLength}`]}</p>`;
   for (let i = 0; i < itemsLength; i++) {
-    html += createGameOption(data.paintings[0], i, width, height);
+    html += createGameOption(data.paintings[0], i, width, height, showLabels);
   }
   html += `</form>`;
   return html;
 };
-const createGameOption = (src, index, width, height) => `<div class="game__option">
+const createGameOption = (src, index, width, height, showLabels) => `<div class="game__option">
         <img src="${src}" alt="Option ${index}" width="${width}" height="${height}">
-        <label class="game__answer game__answer--photo">
+        ${(showLabels ? addLabels(index) : ``)}
+      </div>`;
+const addLabels = (index) => `<label class="game__answer game__answer--photo">
           <input class="visually-hidden" name="question${index}" type="radio" value="photo">
           <span>Фото</span>
         </label>
         <label class="game__answer game__answer--paint">
           <input class="visually-hidden" name="question${index}" type="radio" value="paint">
           <span>Рисунок</span>
-        </label>
-      </div>`;
+        </label>`;
 const htmlStats = `<ul class="stats">
       <li class="stats__result stats__result--wrong"></li>
       <li class="stats__result stats__result--slow"></li>
