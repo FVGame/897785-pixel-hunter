@@ -4,8 +4,9 @@ import setTemplate from './set-template';
 import data from './data-game1';
 import randomInt from './random-integer';
 import gameHeader from './game-header';
-import gameStats from './game-stats';;
-
+import gameStats from './game-stats';
+import gameSession from './game-session';
+console.log(gameSession);
 let itemsLength = randomInt(1, 4);
 const items = {
   ONE: 1,

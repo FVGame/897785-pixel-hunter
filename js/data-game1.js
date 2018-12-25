@@ -48,7 +48,7 @@ export default {
     `/img/paints/IMG_37633c8246c2.jpg`,
     `/img/paints/IMG_82531029870c.jpg`,
     `/img/paints/IMG_a9e94598ff4c.jpg`,
-    `/img/paints/tn.jpg`,
+    `/img/paints/tn.jpg`
   ],
   photos: [
     `http://i.imgur.com/1KegWPz.jpg`, // People
