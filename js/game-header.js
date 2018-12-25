@@ -1,4 +1,6 @@
-export default `<header class="header">
+import getElementFromHtml from "./get-element-from-html";
+
+export default getElementFromHtml(`<header class="header">
     <button class="back">
       <span class="visually-hidden">Вернуться к началу</span>
       <svg class="icon" width="45" height="45" viewBox="0 0 45 45" fill="#000000">
@@ -14,4 +16,4 @@ export default `<header class="header">
       <img src="img/heart__full.svg" class="game__heart" alt="Life" width="31" height="27">
       <img src="img/heart__full.svg" class="game__heart" alt="Life" width="31" height="27">
     </div>
-  </header>`;
+  </header>`);

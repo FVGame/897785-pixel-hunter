@@ -56,11 +56,13 @@ const addLabels = (index) => `<label class="game__answer game__answer--photo">
           <input class="visually-hidden" name="question${index}" type="radio" value="paint">
           <span>Рисунок</span>
         </label>`;
-const game1 = getElementFromHtml(`<div>${gameHeader}
-  <section class="game">
-    ${createForm()}
-    ${gameStats}
-  </section></div>`);
+let game1 = getElementFromHtml(`<div></div>`);
+game1.appendChild(gameHeader);
+const section = game1.appendChild(getElementFromHtml(`<section class="game"></section>`));
+section.innerHTML = createForm();
+section.appendChild(gameStats);
+game1.appendChild(section);
+
 const addEventsGame1 = () => {
   game1.querySelectorAll(`.game__answer input`).forEach((input) => {
     input.addEventListener(`change`, () => {
