@@ -6,7 +6,7 @@ const stats = {
   lives: 3,
   trueAnswers: [],
   userAnswers: [],
-  gameTypes: [],
+  gameType: randomInt(1, 4),
   images: [],
   currentGameIndex: 0
 };
@@ -14,9 +14,8 @@ const stats = {
 const createGames = () => {
   const usedImages = new Set();
   for (let typeIndex = 0; typeIndex < 10; typeIndex++) {
-    stats.gameTypes[typeIndex] = randomInt(1, 4);
     stats.images[typeIndex] = [];
-    for (let i = 0; i < stats.gameTypes[typeIndex]; i++) {
+    for (let i = 0; i < stats.gameType; i++) {
       const newImageType = (randomInt(1, 3) === 1 ? gameData.paintings : gameData.photos);
       let newImage = ``;
       const getNewImage = () => {

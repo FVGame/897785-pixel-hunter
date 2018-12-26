@@ -18,7 +18,7 @@ const g = () => {
     let width = 0;
     let height = 0;
     let showLabels = true;
-    switch (gameSession.gameTypes[gameSession.currentGameIndex]) {
+    switch (gameSession.gameType) {
       case items.ONE:
         additionalClasses = `game__content--wide`;
         width = 705;
@@ -37,9 +37,9 @@ const g = () => {
         break;
     }
 
-    let html = `<p class="game__task">${data.taskDescriptions[`itemsLength${gameSession.gameTypes[gameSession.currentGameIndex]}`]}</p>`;
+    let html = `<p class="game__task">${data.taskDescriptions[`itemsLength${gameSession.gameType}`]}</p>`;
     html += `<form class="game__content ${additionalClasses}">`;
-    for (let i = 0; i < gameSession.gameTypes[gameSession.currentGameIndex]; i++) {
+    for (let i = 0; i < gameSession.gameType; i++) {
       html += createGameOption(gameSession.images[gameSession.currentGameIndex][i], i, width, height, showLabels);
     }
     html += `</form>`;
@@ -88,12 +88,15 @@ const g = () => {
     });
   };
   const setNewPage = () => {
-    gameSession.userAnswers[gameSession.currentGameIndex] = 1;// TODO: need set true answer
+    gameSession.userAnswers[gameSession.currentGameIndex] = {
+      answer: 1,
+      time: 15
+    };// TODO: need set true answer
     gameSession.currentGameIndex++;
     gameController();
   };
 
-  switch (gameSession.gameTypes[gameSession.currentGameIndex]) {
+  switch (gameSession.gameType) {
     case items.ONE:
       addEventsGame1();
       break;
