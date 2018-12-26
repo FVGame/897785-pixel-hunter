@@ -4,7 +4,8 @@ import gameData from './data-game1';
 const stats = {
   username: ``,
   lives: 3,
-  answers: [],
+  trueAnswers: [],
+  userAnswers: [],
   gameTypes: [],
   images: [],
   currentGameIndex: 0
@@ -22,7 +23,7 @@ const createGames = () => {
         newImage = newImageType[randomInt(0, newImageType.length)];
         if (!usedImages.has(newImage)) {
           usedImages.add(newImage);
-          stats.answers[typeIndex] = 1; // TODO: need set true answers
+          stats.trueAnswers[typeIndex] = 1; // TODO: need set true answers
         } else {
           getNewImage();
         }

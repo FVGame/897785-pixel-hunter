@@ -67,8 +67,7 @@ const g = () => {
   const addEventsGame1 = () => {
     game1.querySelectorAll(`.game__answer input`).forEach((input) => {
       input.addEventListener(`change`, () => {
-        // setTemplate(templateGame1);
-        gameController();
+        setNewPage();
       });
     });
   };
@@ -77,18 +76,21 @@ const g = () => {
     game1.querySelector(`.game__content`).addEventListener(`click`, (event) => {
       const fields = event.currentTarget.querySelectorAll(`.game__answer input`);
       if (groupsCount === Array.from(fields).filter((input) => input.checked).length) {
-        // setTemplate(templateGame1);
-        gameController();
+        setNewPage();
       }
     });
   };
   const addEventsGame3 = () => {
     game1.querySelectorAll(`.game__option`).forEach((item) => {
       item.addEventListener(`click`, () => {
-        // setTemplate(templateGame1);
-        gameController();
+        setNewPage();
       });
     });
+  };
+  const setNewPage = () => {
+    gameSession.userAnswers[gameSession.currentGameIndex] = 1;// TODO: need set true answer
+    gameSession.currentGameIndex++;
+    gameController();
   };
 
   switch (gameSession.gameTypes[gameSession.currentGameIndex]) {
@@ -104,8 +106,6 @@ const g = () => {
   }
 
   setTemplate(game1);
-
-  gameSession.currentGameIndex++;
 
   return gameSession;
 };

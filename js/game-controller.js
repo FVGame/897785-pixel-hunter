@@ -6,7 +6,7 @@ let session;
 const controller = () => {
   if (!session || session.currentGameIndex < 10) {
     session = templateGame1();
-    console.log(session.currentGameIndex)
+    console.log(session.userAnswers)
   } else {
     setTemplate(templateStats);
   }
