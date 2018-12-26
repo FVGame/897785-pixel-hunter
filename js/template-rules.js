@@ -39,7 +39,8 @@ rules.querySelector(`.rules__input`).addEventListener(`input`, (event) => {
 });
 
 buttonGo.addEventListener(`click`, () => {
-  setTemplate(templateGame1);
+  // setTemplate(templateGame1);
+  templateGame1();
 });
 
 export default rules;
