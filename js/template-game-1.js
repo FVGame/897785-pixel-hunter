@@ -2,12 +2,12 @@ import getElementFromHtml from "./get-element-from-html";
 import templateGame1 from './template-game-1';
 import setTemplate from './set-template';
 import data from './data-game1';
-import randomInt from './random-integer';
 import gameHeader from './game-header';
 import gameStats from './game-stats';
 import gameSession from './game-session';
+
 console.log(gameSession);
-let itemsLength = randomInt(1, 4);
+
 const items = {
   ONE: 1,
   TWO: 2,
@@ -18,7 +18,7 @@ const createForm = () => {
   let width = 0;
   let height = 0;
   let showLabels = true;
-  switch (itemsLength) {
+  switch (gameSession.gameTypes[gameSession.currentGameIndex]) {
     case items.ONE:
       additionalClasses = `game__content--wide`;
       width = 705;
@@ -37,10 +37,10 @@ const createForm = () => {
       break;
   }
 
-  let html = `<p class="game__task">${data.taskDescriptions[`itemsLength${itemsLength}`]}</p>`;
+  let html = `<p class="game__task">${data.taskDescriptions[`itemsLength${gameSession.gameTypes[gameSession.currentGameIndex]}`]}</p>`;
   html += `<form class="game__content ${additionalClasses}">`;
-  for (let i = 0; i < itemsLength; i++) {
-    html += createGameOption(data.paintings[0], i, width, height, showLabels);
+  for (let i = 0; i < gameSession.gameTypes[gameSession.currentGameIndex]; i++) {
+    html += createGameOption(gameSession.images[gameSession.currentGameIndex][i], i, width, height, showLabels);
   }
   html += `</form>`;
   return html;
@@ -88,7 +88,7 @@ const addEventsGame3 = () => {
   });
 };
 
-switch (itemsLength) {
+switch (gameSession.gameTypes[gameSession.currentGameIndex]) {
   case items.ONE:
     addEventsGame1();
     break;
