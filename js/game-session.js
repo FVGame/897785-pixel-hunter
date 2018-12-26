@@ -8,10 +8,10 @@ const createGames = () => {
   for (let typeIndex = 0; typeIndex < 10; typeIndex++) {
     gameTypes[typeIndex] = randomInt(1, 4);console.log(gameTypes[typeIndex])
     images[typeIndex] = [];
-    for (let i = 0; i < gameTypes[i]; i++) {
+    for (let i = 0; i < gameTypes[typeIndex]; i++) {
       const newImageType = (randomInt(1, 3) === 1 ? gameData.paintings : gameData.photos);
       let newImage = ``;
-      const getNewImage = () => { // TODO: выход из цикла происходит раньше окончания рекурсии
+      const getNewImage = () => {
         newImage = newImageType[randomInt(0, newImageType.length)];
         if (!usedImages.has(newImage)) {
           usedImages.add(newImage);
@@ -23,8 +23,6 @@ const createGames = () => {
       images[typeIndex][i] = newImage;
     }
   }
-
-  console.log(images);
 };
 
 const stats = {
